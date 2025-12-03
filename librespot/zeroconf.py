@@ -34,7 +34,7 @@ class ZeroconfServer(Closeable):
         "version": "2.7.1",
         "libraryVersion": Version.version_name,
         "accountReq": "PREMIUM",
-        "brandDisplayName": "kokarare1212",
+        "brandDisplayName": "redlegoman",
         "modelDisplayName": "librespot-python",
         "voiceSupport": "NO",
         "availability": "",
