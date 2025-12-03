@@ -121,7 +121,7 @@ class OAuth:
     def run_callback_server(self):
         url = urlparse(self.__redirect_url)
         self.__server = self.CallbackServer(
-            (0.0.0.0, url.port),
+            ("0.0.0.0", url.port),
             self.CallbackRequestHandler,
             url.path,
             self.set_code,
