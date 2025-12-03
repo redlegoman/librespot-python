@@ -18,6 +18,7 @@ class OAuth:
     __spotify_token_data = {"grant_type": "authorization_code", "client_id": "", "redirect_uri": "", "code": "", "code_verifier": ""}
     __client_id = ""
     __redirect_url = ""
+    __listen_address = "0.0.0.0"
     __code_verifier = ""
     __code = ""
     __token = ""
@@ -25,9 +26,10 @@ class OAuth:
     __oauth_url_callback = None
     __success_page_content = None
 
-    def __init__(self, client_id, redirect_url, oauth_url_callback):
+    def __init__(self, client_id, redirect_url, listen_address, oauth_url_callback):
         self.__client_id = client_id
         self.__redirect_url = redirect_url
+        self.__listen_address = listen_address
         self.__oauth_url_callback = oauth_url_callback
     
     def set_success_page_content(self, content):
@@ -120,8 +122,10 @@ class OAuth:
 
     def run_callback_server(self):
         url = urlparse(self.__redirect_url)
+        listen_address = urlparse(self.__listen_address)
         self.__server = self.CallbackServer(
-            ("0.0.0.0", url.port),
+            #("0.0.0.0", url.port),
+            (listen_address.hostname, url.port),
             self.CallbackRequestHandler,
             url.path,
             self.set_code,
