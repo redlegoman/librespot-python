@@ -1,4 +1,3 @@
-#redlegoman
 import base64
 import logging
 import random
@@ -18,7 +17,8 @@ class OAuth:
     __spotify_token_data = {"grant_type": "authorization_code", "client_id": "", "redirect_uri": "", "code": "", "code_verifier": ""}
     __client_id = ""
     __redirect_url = ""
-    __listen_address = "0.0.0.0"
+    #__listen_address = "0.0.0.0"
+    __listen_address = ""
     __code_verifier = ""
     __code = ""
     __token = ""
